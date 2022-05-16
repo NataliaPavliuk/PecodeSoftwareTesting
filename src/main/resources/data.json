@@ -1,0 +1,14 @@
+{"data":
+[
+  {
+    "SearchField": "ноутбук",
+    "Brand": "HP",
+    "Price": "50000"
+  },
+  {
+    "SearchField": "телевізор",
+    "Brand": "Samsung",
+    "Price": "100000"
+  }
+]
+}

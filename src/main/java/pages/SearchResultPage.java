@@ -1,5 +1,7 @@
 package pages;
 
+import Decorator.Button;
+import Decorator.CheckBox;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,11 +13,17 @@ public class SearchResultPage extends BasePage{
     @FindBy(xpath = "//div[@class='sidebar-search']//input[@name='searchline']")
     private WebElement searchField;
 
+    @FindBy(xpath = "//a[@data-id='Samsung']")
+    private CheckBox checkboxSamsung;
+
     @FindBy(xpath = "//a[@data-id='HP']")
-    private WebElement checkboxHP;
+    private CheckBox checkboxHP;
+
+    @FindBy(xpath = "//a[@data-id='Apple']")
+    private CheckBox checkboxApple;
 
     @FindBy(xpath = "//option[contains(@value, 'expensive')]")
-    private WebElement expensiveItem;
+    private Button expensiveItem;
 
     @FindBy(xpath = " //button[@class='buy-button goods-tile__buy-button ng-star-inserted']")
     private WebElement cartButtons;
@@ -25,6 +33,10 @@ public class SearchResultPage extends BasePage{
         super(driver);
     }
 
+    public WebElement getCartButtons(){return cartButtons;}
+
+    public Button getExpensiveItem(){return expensiveItem;}
+
     public void clickCartButtonOnFirstProduct() {
        cartButtons.click();
    }
@@ -33,9 +45,11 @@ public class SearchResultPage extends BasePage{
         return searchField;
     }
 
-    public void takeExpensiveItem(){expensiveItem.click();}
+    public void takeExpensiveItem(){expensiveItem.myClick();}
 
-    public void takeCheckBox(){checkboxHP.click();}
+    public void takeCheckBoxSamsung(){checkboxSamsung.mySetChecked(true);}
+    public void takeCheckBoxHP(){checkboxHP.mySetChecked(true);}
+    public void takeCheckBoxApple(){checkboxApple.mySetChecked(true);}
     public void searchBrend(final String searchText) {
         searchField.clear();
         searchField.sendKeys(searchText, Keys.ENTER);;

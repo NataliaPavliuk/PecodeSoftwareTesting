@@ -6,6 +6,7 @@ import org.testng.annotations.*;
 import pages.HomePage;
 import pages.SearchResultPage;
 import pages.ShoppingCartPage;
+import util.PropertiesReader;
 
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 
@@ -13,7 +14,6 @@ public class BaseTest {
 
     private WebDriver driver;
     private static final ThreadLocal<WebDriver> WEBDRIVER_THREADLOCAL = new ThreadLocal<WebDriver>();
-    private static final String ROZETKA_URL = "https://rozetka.com.ua";;
 
     @BeforeClass
     public void profileSetUp(){
@@ -22,6 +22,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void testsSetUo(){
+        String ROZETKA_URL=new PropertiesReader().getURL();
         driver = new ChromeDriver();
         WEBDRIVER_THREADLOCAL.set(driver);
         driver = WEBDRIVER_THREADLOCAL.get();
