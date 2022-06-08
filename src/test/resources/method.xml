@@ -1,62 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" data-provider-thread-count="3" parallel="tests">
-    <parameter name="SearchForA" value="ноутбук" />
-    <parameter name="BrandForA" value="HP" />
-    <parameter name="PriceForA" value="150000" />
-    <parameter name="SearchForB" value="телевізор" />
-    <parameter name="BrandForB" value="Samsung" />
-    <parameter name="PriceForB" value="290000" />
-    <parameter name="SearchForC" value="телефон" />
-    <parameter name="BrandForC" value="Apple" />
-    <parameter name="PriceForC" value="60000" />
-    <parameter name="SearchForD" value="монітор" />
-    <parameter name="BrandForD" value="HP" />
-    <parameter name="PriceForD" value="45000" />
-    <parameter name="SearchForE" value="холодильник" />
-    <parameter name="BrandForE" value="Samsung" />
-    <parameter name="PriceForE" value="75000" />
-    <test name="checkBasketListA">
+<suite name="Suite" data-provider-thread-count="2" parallel="tests">
+    <test name="test.Test">
         <classes>
             <class name="test.Test">
                 <methods>
-                    <include name="A"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="checkBasketListB">
-        <classes>
-            <class name="test.Test">
-                <methods>
-                    <include name="B"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="checkBasketListC">
-        <classes>
-            <class name="test.Test">
-                <methods>
-                    <include name="C"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="checkBasketListD">
-        <classes>
-            <class name="test.Test">
-                <methods>
-                    <include name="D"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="checkBasketListE">
-        <classes>
-            <class name="test.Test">
-                <methods>
-                    <include name="E"/>
+                    <include name="myTest"/>
                 </methods>
             </class>
         </classes>

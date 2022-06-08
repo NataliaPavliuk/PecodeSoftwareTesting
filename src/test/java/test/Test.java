@@ -49,7 +49,7 @@ public class Test extends BaseTest {
 
 
     @org.testng.annotations.Test(dataProvider="dp")
-        public void myTest(String data){
+        public void myTest(String data) throws InterruptedException {
         String[] fields = data.split(",");
         JsonReader jsonReader=new JsonReader();
             jsonReader.jsonReader();
