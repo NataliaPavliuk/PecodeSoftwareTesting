@@ -8,7 +8,7 @@ import org.testng.ITestResult;
 import java.util.logging.Logger;
 
 public class CustomerTestLisener implements ITestListener {
-    public static Logger logger = Logger.getLogger((Button.class).toString());
+    public static Logger logger = Logger.getLogger((Test.class).toString());
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -34,5 +34,15 @@ public class CustomerTestLisener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
        logger.info("Result was skipped");
+    }
+
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+
+    }
+
+    @Override
+    public void onStart(ITestContext iTestContext) {
+
     }
 }

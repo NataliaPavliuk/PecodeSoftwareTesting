@@ -9,9 +9,11 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class JsonReader {
 JsonArray data;
+    public static Logger logger = Logger.getLogger((JsonReader.class).toString());
 
     public JsonArray getData(){
         return data;
@@ -23,9 +25,11 @@ JsonArray data;
             JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
 
             data = (JsonArray) parser.get("data");
+            logger.info("data read");
             reader.close();
 
         } catch (Exception ex) {
+logger.info("data did not read");
             ex.printStackTrace();
         }
     }

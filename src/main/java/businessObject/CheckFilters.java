@@ -2,9 +2,12 @@ package businessObject;
 
 import pages.HomePage;
 import pages.SearchResultPage;
+import util.PropertiesReader;
+
+import java.util.logging.Logger;
 
 public class CheckFilters {
-
+    public static Logger logger = Logger.getLogger((CheckFilters.class).toString());
     public void takeCheckBox(SearchResultPage searchResultPage, long DEFAULT_WAITING_TIME, String brand) throws InterruptedException {
         searchResultPage.waitForPageLoadComplete(DEFAULT_WAITING_TIME);
         Thread.sleep(1000);
@@ -24,6 +27,7 @@ public class CheckFilters {
                 searchResultPage.takeCheckBoxApple();
                 break;
         }
+        logger.info("filter selected");
     }
 
     public void takeExpensiveItem(SearchResultPage searchResultPage, long DEFAULT_WAITING_TIME) throws InterruptedException {
@@ -40,6 +44,7 @@ public class CheckFilters {
     public void clickFirstItem(HomePage homePage, long DEFAULT_WAITING_TIME){
         homePage.waitVisibilityOfElement(DEFAULT_WAITING_TIME, homePage.getHeaderCartButton());
         homePage.clickHeaderCartButton();
+        logger.info("first item clicked");
     }
 
 }
