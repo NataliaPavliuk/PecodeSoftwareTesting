@@ -1,13 +1,11 @@
 package test;
 
-import Decorator.Button;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import java.util.logging.Logger;
 
-public class CustomerTestLisener implements ITestListener {
+public class CustomerTestListener implements ITestListener {
     public static Logger logger = Logger.getLogger((Test.class).toString());
 
     @Override

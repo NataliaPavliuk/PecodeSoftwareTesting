@@ -1,14 +1,20 @@
 {"data":
 [
   {
-    "SearchField": "ноутбук",
-    "Brand": "HP",
-    "Price": "50000"
+    "Destination": "New York",
+    "CountOfNights": "29",
+    "StartDate": "Monday 1 August 2022",
+    "EndDate": "Tuesday 30 August 2022",
+    "StartPrice": "2000",
+    "EndPrice": "4000"
   },
   {
-    "SearchField": "телевізор",
-    "Brand": "Samsung",
-    "Price": "100000"
+    "Destination": "New York",
+    "CountOfNights": "29",
+    "StartDate": "Monday 1 August 2022",
+    "EndDate": "Tuesday 30 August 2022",
+    "StartPrice": "2000",
+    "EndPrice": "4000"
   }
 ]
 }

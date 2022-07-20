@@ -5,15 +5,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.SearchResultPage;
-import pages.ShoppingCartPage;
 import util.PropertiesReader;
+
+import java.util.concurrent.TimeUnit;
 
 import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
 
 public class BaseTest {
 
     private WebDriver driver;
-    private static final ThreadLocal<WebDriver> WEBDRIVER_THREADLOCAL = new ThreadLocal<WebDriver>();
+    private static final ThreadLocal<WebDriver> WEBDRIVER_THREADLOCAL = new ThreadLocal<>();
 
     @BeforeClass
     public void profileSetUp(){
@@ -21,13 +22,14 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void testsSetUo(){
-        String ROZETKA_URL=new PropertiesReader().getURL();
+    public void testsSetUp(){
+        String BOOKING_URL=new PropertiesReader().getURL();
         driver = new ChromeDriver();
         WEBDRIVER_THREADLOCAL.set(driver);
         driver = WEBDRIVER_THREADLOCAL.get();
         driver.manage().window().maximize();
-        driver.get(ROZETKA_URL);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(BOOKING_URL);
     }
 
 @AfterMethod
@@ -42,10 +44,6 @@ public class BaseTest {
 
     public HomePage getHomePage(){
         return new HomePage(getDriver());
-    }
-
-    public ShoppingCartPage getShoppingCartPage(){
-        return new ShoppingCartPage(getDriver());
     }
 
     public SearchResultPage getSearchResultPage(){return new SearchResultPage(getDriver());

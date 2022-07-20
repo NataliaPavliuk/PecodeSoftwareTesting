@@ -1,43 +1,40 @@
 package pages;
 
-import Decorator.Button;
-import Decorator.TextInput;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import java.util.Set;
 
 public class HomePage extends BasePage {
 
-    @FindBy(xpath = "//input[contains(@class, 'search-form__input')]")
-    private TextInput searchField;
-
-    @FindBy(xpath = " //button[contains(@class, 'header__button ng-star-inserted header__button--active')]")
-    private WebElement headerCartButton;
-
-
+    private final By destinationFieldBy = By.id("ss");
+    private final By dateFieldBy = By.xpath("//span[contains(@class,'sb-date-field__icon')]");
+    private final By dateStartFieldBy = By.xpath("//td[@data-date='2022-08-01']");
+    private final By dateEndFieldBy = By.xpath("//td[@data-date='2022-08-30']");
+    private final By searchButtonBy = By.xpath("//span[@class='js-sb-submit-text ']");
+    private final WebDriver driver;
+    
     public HomePage(WebDriver driver) {
         super(driver);
+        this.driver=driver;
     }
 
-    public boolean isSearchFieldVisible() {
-        return searchField.isDisplayed();
+    public WebElement getSearchButton() {
+        return driver.findElement(searchButtonBy);
     }
 
-    public void enterTextToSearchField(final String searchText) {
-        searchField.mySendKeys(searchText, Keys.ENTER);
-       // searchField.sendKeys(Keys.ENTER);
+    public void enterTextToDestinationField(final String searchText) {
+        driver.findElement(destinationFieldBy).sendKeys(searchText);
     }
 
-    public WebElement getHeaderCartButton(){
-        return headerCartButton;
+    public void chooseDate(){
+        driver.findElement(dateFieldBy).click();
+        driver.findElement(dateStartFieldBy).click();
+        driver.findElement(dateEndFieldBy).click();
     }
 
-    public void clickHeaderCartButton() {
-        headerCartButton.click();
+    public void clickSearchButton(long DEFAULT_TIME){
+        waitVisibilityOfElement(DEFAULT_TIME, getSearchButton());
+        waitForElementIsClickable(DEFAULT_TIME, getSearchButton());
+        driver.findElement(searchButtonBy).click();
     }
-
-
 }
