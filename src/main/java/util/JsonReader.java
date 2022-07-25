@@ -23,11 +23,10 @@ JsonArray data;
             JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
 
             data = (JsonArray) parser.get("data");
-            logger.info("data read");
+            logger.info("Data read");
             reader.close();
-
         } catch (Exception ex) {
-logger.info("data did not read");
+logger.info("Data did not read");
             ex.printStackTrace();
         }
     }

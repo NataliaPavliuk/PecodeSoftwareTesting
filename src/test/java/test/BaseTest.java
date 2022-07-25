@@ -3,8 +3,7 @@ package test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-import pages.HomePage;
-import pages.SearchResultPage;
+import pages.LoginPage;
 import util.PropertiesReader;
 
 import java.util.concurrent.TimeUnit;
@@ -23,13 +22,13 @@ public class BaseTest {
 
     @BeforeMethod
     public void testsSetUp(){
-        String BOOKING_URL=new PropertiesReader().getURL();
+        String LOGIN_URL=new PropertiesReader().getURL();
         driver = new ChromeDriver();
         WEBDRIVER_THREADLOCAL.set(driver);
         driver = WEBDRIVER_THREADLOCAL.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(BOOKING_URL);
+        driver.get(LOGIN_URL);
     }
 
 @AfterMethod
@@ -42,11 +41,8 @@ public class BaseTest {
         return driver;
     }
 
-    public HomePage getHomePage(){
-        return new HomePage(getDriver());
-    }
-
-    public SearchResultPage getSearchResultPage(){return new SearchResultPage(getDriver());
+    public LoginPage getLoginPage(){
+        return new LoginPage(getDriver());
     }
 }
 

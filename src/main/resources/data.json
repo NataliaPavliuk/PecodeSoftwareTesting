@@ -1,20 +1,12 @@
 {"data":
 [
   {
-    "Destination": "New York",
-    "CountOfNights": "29",
-    "StartDate": "Monday 1 August 2022",
-    "EndDate": "Tuesday 30 August 2022",
-    "StartPrice": "2000",
-    "EndPrice": "4000"
+   "Username": "pavliuk",
+    "Password": "natalia"
   },
   {
-    "Destination": "New York",
-    "CountOfNights": "29",
-    "StartDate": "Monday 1 August 2022",
-    "EndDate": "Tuesday 30 August 2022",
-    "StartPrice": "2000",
-    "EndPrice": "4000"
+    "Username": "pavliuk_natalia",
+    "Password": "12345"
   }
 ]
 }
